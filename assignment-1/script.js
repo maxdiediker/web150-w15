@@ -1,0 +1,4 @@
+
+
+
+var myName = "Max Diediker";
