@@ -26,8 +26,83 @@
   console.log(names);
   names.slice(2,4);
   var nermal = names.pop();//remove item
-  console.log(names,nermal);
+  console.log(names,nermal,names.length);
 
+
+for(i=0;i<names.length;i = i+1){
+
+  console.log(names[i]);
+}
+
+var list = [1,1,2,3,5,8,13,21];
+var total = 0;
+//add up all these numbers
+for (var i=0; i < list.length; i++){
+  var item = list[i];
+  total = total+item;
+
+}
+console.log("sum of the list is: ",total);
+
+//find an average
+var average = total / list.length;
+console.log("The average is: ",average);
+
+//count numbers greater than 4
+
+var count = 0;
+
+for (var i=0; i < list.length; i++){
+  var item = list[i];
+  if (item > 4) {
+    //cont = count +1;
+    count++;
+  }
+}
+console.log("# if items > 4 :",count);
+//filter list to find odd numbers
+
+var odds = [];
+for (var i=0; i < list.length; i++){
+  var item = list[i];
+  if (item % 2 ) {
+    odds.push(item);
+
+  }
+}
+console.log("the number of odds is: ",odds);
+//filter list to find odd numbers
+
+
+for (var i=0; i < list.length; i++){
+  var item = list[i];
+  list[i] = item * 2;
+
+}
+
+console.log("doubled: ",list);
+
+
+var randoms = [-3,4,17,-47,8,122];
+//find the highest and the lowest
+
+//var highest = randoms[0];
+var highest = -Infinity;
+var lowest = Infinity;
+
+for (var i=0; i < randoms.length; i++){
+  var item = randoms[i];
+  if (item > highest) {
+    console.log("found a higher item",item);
+    highest = item;
+  }
+  if (item < lowest){
+    lowest = item;
+  }
+}
+
+console.log("lowest number: ",lowest);
+console.log("lowest number: ",highest);
 
 
 
