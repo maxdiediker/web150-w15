@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+
+  <title>ass2</title>
+
+  <meta charset="utf8">
+</head>
+<body>
+  This space intentionally left blank
+
+  <script>
+  var atZoo = confirm("are you at the zoo?");
+  console.log("you are enjoying the zoo");
+    if (!atZoo){
+      console.log("you not there");
+    }
+    else {
+
+      var pounds = prompt("how many pounds do you way");
+      pounds = Number(pounds);
+        if (pounds > 2000){
+          console.log("you are a whale");
+        }
+        else if (pounds >1500){
+          console.log("you are bear");
+
+          var bearType = prompt("what kind of bear are you");
+
+            if (bearType == "brown"){
+            console.log("you are a grizzly bear");
+            }
+            else if (bearType =="white") {
+            console.log("your a polar bear");
+          }
+        }
+        else if (pounds < 1000){
+          console.log("you are hippo");
+        }
+        else if (pounds > 999) {
+          var animal = prompt("what kind of animal are you");
+          switch(animal){
+            case "lizard":
+              console.log("iguana");
+              break;
+
+        }
+
+    }
+
+
+
+  atZoo = Number(atZoo);
+
+
+
+
+
+
+
+
+
+  </script>
+
+</body>
+
+
+</html>
