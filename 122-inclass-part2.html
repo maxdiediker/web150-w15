@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<head>
+  <title>inclass</title>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+
+
+
+
+
+<script src="http://thomaswilburn.net/scc/data/schools.js">
+</script>
+
+</head>
+<body>
+<script>
+
+
+
+
+//output all the names
+/*
+for (var i = 0; i < names.length; i++) {
+  var item = names[i];
+  console.log(item);
+}
+*/
+//broken
+
+
+
+//defining scratch variable and counters
+
+var highestRev = 0;//revenue[0]
+var index = 0;
+//loop through the array
+for (var i = 0; i < revenue.length; i++){
+  var r = revenue[i];
+  //compar highest to current
+  if (r > highestRev)  {
+    //store value and index
+    highestRev = r;
+    index = i;
+
+  }
+
+}
+console.log ("highest is " , highestRev);
+console.log ("the school is " , names[index]);
+console.log ("per-student spending:" , spending[index] / enrollment[index]);
+
+//average spending
+var totalSpending = 0;
+for (var i = 0; i < spending.length; i++){
+  totalSpending = totalSpending + spending[i];
+}
+console.log ("spending for wa stats " ,totalSpending);
+console.log ("average spending " , totalSpending / names.length);
+
+
+
+//find percapita student spendin
+var underPopulated = 0;
+
+
+for (var i = 0; i < spending.length; i++) {
+  var spend = spending[i];
+  var students = enrollment[i];
+//-------------- eliminating small schools-------------------
+  if (students > 200){
+    var percap = spend /students;
+    console.log(percap, names[i]);
+  }
+  else {
+    underPopulated++;
+  }
+//-------------------------------------------------------
+  var percap = spend / students;
+
+
+}
+console.log("removed from list: ",underPopulated);
+//--------------------creatingan array of schools under budget------------
+var cheapskates = [];
+for (var i = 0; i < revenue.length; i++){
+  var profit = revenue[i] - spending[i];
+  if (profit > 0) {
+    cheapskates.push(names[i]);
+  }
+}
+console.log("cheapskates",cheapskates)
+//----------------------------------------------------------
+</script>
+</body>
+</html>
