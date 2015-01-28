@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>object</title>
+<meta charset="UTF-8" />
+<meta name="robots" content="noindex, nofollow" />
+
+<script src="http://thomaswilburn.net/scc/data/quakes.js"></script>
+
+
+</head>
+<body>
+onemore in console
+  <header>
+
+<h1>object oriented in-class</h1>
+
+<script type='text/javascript' src='script.js'></script>
+<script src="http://thomaswilburn.net/scc/data/quakes.js"></script>
+
+
+    <script>
+//---------object literal style-----------
+    var neko = {
+      //curly bracket for object
+      weight: 18,//property, subvariable
+      legs: 4,
+      hungry: true,
+      color: "black and orange"//no coma on last one
+    };
+
+    //feed the cat
+
+    neko.hungry = false;
+
+    //you can add properties like this
+    neko.sick = true;
+    //you create empty objects and add properties later.
+    var wallace = {};
+    wallace.breed = "mutt";
+    wallace.nuerotic = true;
+    wallace.name = "wallace willburn";
+    wallace.weight = 62;
+    wallace.daycare = true;
+
+    //var prop = prompt("what to know");
+    //console.log(prop);
+    //console.log(wallace[prop]);//property short for prop
+
+    //console.log(wallace["weight"]);//NO NO
+
+    for (var property in neko) {
+      console.log(property);//find properties
+      console.log(neko[property]);//find out values to properties
+    }
+
+/*    var groceryList = {
+      produce: {
+        vegetables: ["potatoes"],
+        fruit:["fennel","potatoes"]
+      };
+      meat: ["chicken"],
+      iceCream: ["chunky monkey"]
+    };
+*/
+
+
+/// show possible commands in console------------------------------------
+  //  for (var p in console){
+    //  console.log(p);
+//    }
+
+//--------------------QUAKE STUFF----------------
+var quakes = [];
+for (var i = 0;i < magnitude.length; i++) {
+  var q = {
+    magnitude: magnitude[i],
+    depth: depth[i],
+    type: type[i]
+  };
+
+}
+
+quakes.push(q);
+
+console.log(quakes);
+var biggest = quakes[0];
+for (var i=0; i < quakes.length; i++){
+  var quakes = quakes[i];
+  if (quakes.magnitude > biggest.magnitude) {
+    biggest = quake;
+  }
+}
+
+console.log("biggist quake: " + biggest.magnitude);
+console.log("deepest quake: " + biggest.depth);
+//loop through one list
+//------------------------
+
+
+  </script>
+
+
+
+
+
+
+<!-- START Footer -->
+    <footer><small>&copy; 2014, All Rights Reserved ~ Authored by Max Diediker ~ <a href="http://validator.w3.org/check?uri=referer">
+  <img src="http://www.w3.org/html/logo/badge/html5-badge-h-solo.png" style="vertical-align: middle;"
+  width="31" height="32" alt="valid HTML5" />
+   </a>
+ <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3">
+  <img src="http://jigsaw.w3.org/css-validator/images/vcss" style="vertical-align: middle;"
+   alt="Valid CSS3" height="31" width="88" />
+</a>
+
+</small>
+</footer>
+    <!-- END Footer -->
+<!-- end validation buttons -->
+</body>
+</html>
