@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>objects</title>
+<meta charset="UTF-8" />
+<meta name="robots" content="noindex, nofollow" />
+<script type='text/javascript' src='script.js'></script>
+<script src="http://thomaswilburn.net/scc/data/cars.js"></script>
+
+<style>
+
+section {
+  background-color:yellow;
+  height:200px;
+}
+
+</style>
+
+</head>
+<body>
+//Highest car ownership
+
+
+//# > 100 per 1000 people
+
+
+
+<section>
+  <h1>In Class Objects</h1>
+
+    <script>
+
+//--------Highest car ownership------------------------------
+      var highest = cars[0];
+      for(i=0; i < cars.length;i++) {
+        var item = cars[i];
+        if(highest.current < item.current){
+          highest = item;
+        }
+      }
+console.log("highest ownship is",highest.country);
+console.log(highest);
+
+//------------Highest porportional increase-----------------------------------
+
+var highestDelta = cars[0];
+for (var i = 0; i < cars.length; i++){
+  var item = cars[i];
+  var itemProportion = (item.current - item.previous) / item.previous;
+  var hProportion = (highestDelta.current - highestDelta.previous)  / highestDelta.previous;
+    if (itemProportion > hProportion) {
+      highestDelta = item;
+      item.increase = itemProportion;
+    }
+}
+console.log(highestDelta);
+
+//---------------------# > 100 per 1000 people---------------------
+
+var carless = [];
+
+for (i = 0; i<cars.length;i++) {
+  if (cars[i].current < 20) {
+    carless.push(cars[i]);
+  }
+}
+console.log("low car countries",carless.length);
+console.log(carless);
+
+//----------------Average ownership by letter-----------------
+
+var groups = {};
+
+for (var i =0; i < cars.length; i++){
+  var item = cars[i];
+  var letter = item.country[0];
+//  console.log(item.country, letter);
+if (!groups[letter]){
+  groups[letter] = [];//there has to be =something in this property value before you can push into it
+}
+    groups[letter].push(item)
+}
+console.log(groups);
+
+var averages = {};
+
+for (var key in groups) {
+  var value = groups[key];
+  var a =0;
+  for (var i = 0; i < value.length; i++){
+    a = a + value[i].current;
+  }
+var avg = a / value.length;
+averages[key] = avg;
+}
+console.log(averages);
+    </script>
+
+</section>
+
+
+
+
+<!-- START Footer -->
+    <footer><small>&copy; 2014, All Rights Reserved ~ Authored by Max Diediker ~
+</footer>
+    <!-- END Footer -->
+<!-- end validation buttons -->
+</body>
+</html>
