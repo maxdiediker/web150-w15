@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>assigggggggggggn</title>
+<meta charset="UTF-8" />
+<meta name="robots" content="noindex, nofollow" />
+
+
+
+
+</head>
+<body>
+
+
+
+<script src="http://thomaswilburn.net/scc/data/companies.js"></script>
+
+
+<script>
+
+var lowest = companies[0];
+
+for(var i=0;i < companies.length;i++){
+  var temp = companies[i];
+
+  if(temp.employees < lowest.employees){  
+    lowest = temp;
+	var lowestIndex = i;
+  }
+
+}
+console.log("name of company is: ",companies[lowestIndex]);
+console.log("the lowest is: ",lowest.employees);
+
+
+  </script>
+
+
+
+
+<!-- START Footer -->
+    <footer><small>&copy; 2014, All Rights Reserved ~ Authored by Max Diediker ~
+</footer>
+    <!-- END Footer -->
+<!-- end validation buttons -->
+</body>
+</html>

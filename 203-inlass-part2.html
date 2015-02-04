@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>inclassjquery</title>
+<meta charset="UTF-8" />
+<meta name="robots" content="noindex, nofollow" />
+
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<style>
+
+.menu li{
+  color:darksalmon;
+  background: lightseagreen;
+  opacity: 1;
+  transition: opacity 10s, color 10s, background 10s;
+}
+.menu li.fade{
+  //opacity:0;
+  color:salmon;
+  background:orange;
+
+}
+
+
+</style>
+
+</head>
+<body>
+
+  <div class ="container">
+    <nav class="menu">
+      <ul>
+        <li> Home
+        <li> About
+      </ul>
+    </nav>
+        <main>
+          Text goes here
+        </main>
+      </div>
+
+<h1>JQUERY extras</H1>
+
+
+
+  <script>
+var menuItems = $(".menu li");
+console.log(menuItems.html());
+
+menuItems = menuItems.filter(":odd");
+menuItems.css("color","red");
+
+var menu = $(".menu");
+
+menu.find("li:last").addClass("fade");
+
+  </script>
+
+
+
+
+<!-- START Footer -->
+    <footer><small>&copy; 2014, All Rights Reserved ~ Authored by Max Diediker ~
+</footer>
+    <!-- END Footer -->
+<!-- end validation buttons -->
+</body>
+</html>
