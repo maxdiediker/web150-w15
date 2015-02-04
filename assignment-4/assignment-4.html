@@ -17,13 +17,13 @@
 
 
 <script>
-
+//SMALLEST COMPANY---------------------------------------------------
 var lowest = companies[0];
 
 for(var i=0;i < companies.length;i++){
   var temp = companies[i];
 
-  if(temp.employees < lowest.employees){  
+  if(temp.employees < lowest.employees){
     lowest = temp;
 	var lowestIndex = i;
   }
@@ -35,6 +35,23 @@ console.log("the lowest is: ",lowest.employees);
 
   </script>
 
+
+  <script>
+  //COMPANIES WITH NEGATIVE PROFITE---------------------------------------------------
+  var negatives = [];
+
+  for (var i = 0; i < companies.length; i++) {
+
+    if (companies[i].profit < 0) {
+    negatives.push(companies[i]);
+       }
+    }
+
+    console.log(negatives);
+  console.log("companies with out profit ",negatives.length);
+
+
+    </script>
 
 
 
