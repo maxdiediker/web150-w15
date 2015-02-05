@@ -38,17 +38,17 @@ console.log("the lowest is: ",lowest.employees);
   var negatives = [];
 
   for (var i = 0; i < companies.length; i++) {
-    var compName = companies[i];
 
     if (companies[i].profit < 0) {
 
     negatives.push(companies[i]);
-       }
-    }
 
-  console.log("the names of companies: ",negatives.company);
-  console.log("companies without profit: ",negatives.length);
-  console.log("testing calling single value type: ",companies.company);
+       }
+
+
+    }
+    console.log("the names of companies: ",negatives);
+    console.log("num of companies without profit: ",negatives.length);
 
 //  ----------AVERAGE MARKET CAP------------------------
 
@@ -56,11 +56,13 @@ var ave= 0;
 var total =0;
 for (var i =0;i < companies.length; i++){
   var eachCap = companies[i].marketCap;
+
   var total = total + eachCap;
 }
+
 ave = total/companies.length;
 
-console.log("this is the average: ",ave)
+console.log("this is the average market cap: ",ave)
     </script>
 
 
