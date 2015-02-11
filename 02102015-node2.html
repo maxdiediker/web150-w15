@@ -1,0 +1,53 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf8">
+    <title>the &lt;main&gt; event</title>
+    <style>
+    .tabs li.active {
+      background: seagreen;
+    }
+      section {
+        background:yellow;
+        height:200px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="tabs">
+      <ul>
+        <li><a href="#fruit">Fruit pies</a>
+        <li><a href="#meringue">Meringue pies</a>
+        <li><a href="#meat">Meat pies</a>
+      </ul>
+    </nav>
+
+    <section id="fruit">this the fruit pie section</section>
+    <section id="meringue">this the merengue pie section</section>
+    <section id="meat">this the meat pie section</section>
+
+
+
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+      <script>
+
+var menuLinks = $(".tabs a");
+menuLinks.on("click", function(e) {
+  e.preventDefault();
+  var $this = $(this);
+  var id = $this.attr("href");
+  var section = $(id);
+  $("section").hide();
+  section.show();
+  $(".table .active").removeClass("active");
+  $this.closest("li").addClass("active");
+});
+;
+var firstItem = $(.tabs a:first);
+//firstItem.trigger("click");
+firstItem.click();//click is listener
+
+      </script>
+    </body>
+  </html>

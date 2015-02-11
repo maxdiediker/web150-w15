@@ -1,0 +1,54 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf8">
+    <title>the &lt;main&gt; event</title>
+  </head>
+  <body>
+
+    <button id=one data-margin="20">One</button>
+    <button id=two data-margin="40">tow</button>
+    <button id=three data-margin="60">three</button>
+
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script>
+
+    var buttons = $("button");
+    buttons.css("background","red");
+
+    var palette = {
+      one: "red",
+      two: "green",
+      three: "blue",
+    };
+
+    var clickedButton = function(e) {//e decribees what happened'click'
+    console.log(this);  //this is a raw html element BAD
+    var $this = $(this); //convertes to jquery variable
+
+    var id = $this.attr("id");
+    var margin = $this.attr("data-margin") || 0;
+    //its easier with 'or'
+    //if (!margin){
+    //  margin=0;
+    //}
+    var color = palette[id];
+
+    $this.css("background",color);
+    $this.css("margin-top", margin + "px");
+    //$this.fadeOut(2000);
+      console.log(e);
+    };
+
+buttons.on("click", clickedButton);//function without quotes means its run after page load
+// 'on' is a mdn event
+var logEvent = function(e) {
+  console.log(e);
+}
+
+buttons.on("mouseenter mouseleave mousemove")
+
+    </script>
+  </body>
+</html>
