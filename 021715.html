@@ -1,0 +1,100 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>PAINT</title>
+    <meta charset=utf8>
+  </head>
+  <body>
+
+    <button class="color" data-color="red">RED</button>
+    <button class="color" data-color="#8FF">GREEN</button>
+
+    <button class="shape" data-shape="square">SQUARE</button>
+    <button class="shape" data-shape="circle">CIRCLE</button>
+    <button class="shape" data-shape="eraser">ERASE</button>
+
+    <canvas width=640 height=480></canvas>
+
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script>
+var $canvas = $("canvas");
+var canvas = $canvas.get(0);
+var context = canvas.getContext("2d");
+
+// context.fillStyle = "#808";
+// context.fillRect(0, 20, 100, 100);
+
+var paint = {
+  mouseDown: false,
+  color: "black",
+  shape: "circle",
+  size: 20
+};
+
+//drawing functions
+var drawRectangle = function(x, y, size) {
+  var half = size / 2;
+  context.fillRect(x - half, y - half, size, size);
+};
+
+var drawCircle = function(x, y, size) {
+  context.beginPath();
+  context.arc(x, y, size / 2, 0, Math.PI * 2);
+  context.fill();
+};
+
+var eraseRectangle = function(x, y, size) {
+  var half = size / 2;
+  context.clearRect(x - half, y - half, size, size);
+};
+
+$canvas.on("mouseup mousedown", function(e) {
+  if (e.type == "mousedown") {
+    paint.mouseDown = true;
+  } else {
+    paint.mouseDown = false;
+  }
+});
+
+$canvas.on("mousemove", function(e) {
+
+  if (!paint.mouseDown) {
+    return;
+  }
+
+  var offset = $canvas.offset();
+  var x = e.pageX - offset.left;
+  var y = e.pageY - offset.top;
+
+  context.fillStyle = paint.color;
+  var brush;
+  if (paint.shape == "circle") {
+    brush = drawCircle;
+  } else if (paint.shape == "eraser") {
+    brush = eraseRectangle;
+  } else {
+    brush = drawRectangle;
+  }
+  brush(x, y, paint.size);
+
+});
+
+$(".color").on("click", function() {
+  var $this = $(this);
+  var color = $this.attr("data-color");
+  paint.color = color;
+});
+
+$(".shape").on("click", function() {
+  var $this = $(this);
+  var shape = $this.attr("data-shape");
+  paint.shape = shape;
+});
+    </script>
+  </body>
+</html>
+
+
+
+<!-- -->

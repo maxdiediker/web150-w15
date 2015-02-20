@@ -1,0 +1,31 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>PAINT</title>
+    <meta charset=utf8>
+  </head>
+  <body>
+    <canvas width=640 height=480></canvas>
+
+  </body>
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script>
+
+  var $canvas = $("canvas");
+  var canvas = $canvas.get(0);
+  var context = canvas.getContext("2d");
+
+  var drawneko = function(x,y) {
+    context.fillStyle = "seagreen";
+    context.fillRect(x -5, y-5, 10,10);//x,y,width,heith
+  }
+
+
+  
+
+
+
+  </script>
+
+</html>
