@@ -1,0 +1,47 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>Forms of regular expression</title>
+    <meta charset=utf8>
+  </head>
+  <body>
+<input class="text-input">
+<ul>
+  <li> <input type ="radio" value ="fruit" name ="pies"> fruit
+  <li> <input type ="radio" value ="meat" name ="pies">meat
+  <li> <input type ="checkbox" value ="meat" class ="you win">checkmate
+  </ul>
+
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script>
+  var textInput = $(".text.input");
+  textInput.val("blacnk text");
+  console.log(textInput.val());
+//$(".checkmate").is(":checked")
+var checked = $(".checked").is(":checked");
+$(".checkmate").attr("checked", "true");
+
+//requrired input polyfill test - do input elements support validity
+var (testElement = $("<validity>")) {
+  console.log("reequired pattern is supported");
+  var required = $("[required]");
+  required.on("change", function(){
+
+    var $this = $(this);
+    var value = $this.val();
+    if(!value) {
+      $this.css("border" , "1px solid red");
+    }
+
+  }else{
+    //shim that in
+  }
+
+  }
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>console stuff</title>
+    <meta charset=utf8>
+  </head>
+  <body>
+
+    <input class = "email">
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script>
+
+var email = $(".email");
+email.on("change", function(){
+  var re = /.+@.+\..+/;
+  var $this = $(this);
+  var value = $this.val();
+  var valid = re.test(value);
+  if (valid){
+    $this.css("outline" , "");
+  } else {
+    $this.css("outline", "1px solid red");
+  }
+})
+//test.test("testing 342")
+//var test = /testing \d+/
+//on or more numbers
+//{} testing for a certain number of numbers
+  </script>
+</body>
+</html>
