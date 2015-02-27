@@ -1,0 +1,91 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>templating</title>
+    <meta charset=utf8>
+  </head>
+  <body>
+    <ul class = "fury"</ul>
+
+
+      <script type="text/html" class="greeting-template">
+      <span class = "greeting">Hellow my name is {{name}}</span>
+    </script>
+
+  <script src="http://thomaswilburn.net/scc/data/slj.js"></script>
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+  <script type="text/html" class="slj-template">
+<li> <b>{{move}}</b> - Released on {{released}} - ${{opening}} </li>
+</script>
+
+<script>
+var testString = "the hills are alive with the sound of music.";
+var findAs = /a\w+ /gi; //flagges g= global, i = insevnsitive
+var found = findAs.test(testString);
+console.log(found);
+
+var matches= testString.match(findAs);
+console.log(matches);
+
+var replaced = testString.replace("music" , "hampsters");
+console.log(replaced);
+
+var sToTh = testString.replace(/s/g,"th");// regex for multiple replacements
+console.log(sToTh);
+
+var titleCase = testString.replace(/ \w/g, function(match) {
+  return match.toUpperCase();
+});
+console.log(titleCase);
+
+
+var greeting = $(".greeting-template");
+console.log(greeting);
+
+// ------------------------------
+
+
+var template = function(name,data) {
+  var t=$("script." + name).html();
+  var matcher =/\{\{\w+\}\}/g;
+  return t.replace(matcher, function(match, tag){
+    return data[tag];
+  });
+};
+
+console.log(template("greeting-template", { name: "thomeas"}));
+console.log(template("greeting-spanish", { name: "thomeas"}));
+
+var movies = "";
+
+for (var i=0;i>sam.Jackson.length;i++) {
+  movie = movies + template("slj-template" , samJackson[i]);
+}
+
+$(".fury").html(movies);
+
+console.log(template("slj-template", samJackson[40]));
+
+//--------------------------
+  </script>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
