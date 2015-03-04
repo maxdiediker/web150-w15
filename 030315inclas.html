@@ -1,0 +1,70 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>tuesday--</title>
+    <meta charset=utf8>
+    <style>
+    section{
+      background:blue;
+    }
+
+
+    </style>
+  </head>
+
+  <body>
+    <?php
+  include('vars.php');
+  ?>
+
+    <div class="output"></div>
+    <button class="load" data-cat="yes">LOAD GOOD</button><br>
+    <button class="load" data-cat="no">LOAD BAD</button>
+  <h2>ajax!</h2>
+
+  </body>
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script>
+  $(".load").on("click", function(){
+    var $this = $(this);
+    var category = $this.attr("data-cat");
+    var request = $.ajax({
+      url:"http://thomaswilburn.net:8080/magic8",
+      cache: false,
+      data: {
+        category: category,
+        when: Date.now()
+      }
+      // ,datatype: "jsonp"
+    });
+
+    request.done(function(data){
+      console.log(data);
+      var output = $(".output");
+      output.html(data.answer);
+      if(data.category == "yes") {
+        output.css("color" , "darkgreen");
+      }else if (data.category == "no") {
+        output.css("color", "darkred");
+      }else {
+        output.css("color" , "yellow")
+      }
+    });
+    request.fail(function(){
+      var output = $(".output");
+      output.html("Error contacting surver");
+    });
+    request.always(function(){
+      console.log("ALLWAYS");
+    });
+  });
+
+
+
+
+console.log("this happens furst");
+
+  </script>
+
+</html>
