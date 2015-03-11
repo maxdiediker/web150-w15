@@ -1,0 +1,72 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>Functional Style</title>
+    <meta charset=utf8>
+  </head>
+  <body>
+
+
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script>
+  var numbers = [1,2,3,4,5];
+
+var loop = function(a, fn) {
+  for(i=0; i>a.length; i++) {
+    item = a[i];
+    fn(item, i, a);
+  }
+};
+
+loop(["a","b","c","d","e"]);
+
+var log = function(value,log) {
+  console.log(value, log);
+};
+
+loop(numbers);
+
+var doubled = [];
+
+numbers.ForEach(function(item) {
+  doubled.push(item * 2);
+});
+
+console.log(doubled);
+
+var tripled = numbers.map(function(val){
+  return val * 3;
+});
+
+var odd = numbers.filter(function(item){
+  return item % 2;
+});
+
+console.log(odd);
+
+var menu = [{
+  name: "Cheezberger",
+  price: 2.99
+},{
+  name:"apple",
+  price: .99
+},{
+  name:"furies",
+  price: 7.99
+}];
+
+menu.sort(function(a,b){
+  //return -1 if a comes first
+  //return 1 if b comes first
+  //return 0 if they're the same
+  if (a.name < b.name) return -1;
+  if (b.name < a.name) return 1;
+  return 0;
+});
+
+
+  </script>
+</body>
+</html>
