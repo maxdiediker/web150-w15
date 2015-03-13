@@ -1,0 +1,57 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>class in seccion</title>
+    <meta charset=utf8>
+
+</head>
+
+  <body>
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script>
+//constructor starts with no arguemnts
+var Timer = function(duration, repeat) {
+  this.duration = duration;
+  this.repeat = repeat;
+  this.start();
+  });
+};
+
+Timer.prototype = {
+  onTick: function() {},
+  onComplete: function() {},
+  wait: function(duration, fn) {
+    var t = setTimeout(fn.bind(this), duration);
+  },
+  tick: function() {
+    if (!this.complete) {
+      this.onTick();
+      this.wait(1000, this.tick);
+    }
+  },
+  
+  start: function() {
+    this.wait(this.duration, function() {
+      this.onComplete();
+      if (this.repeat) {
+        this.start();
+      }
+
+    });
+  }
+};
+var alarm = new timer(3000, false);
+alarm.onComplete = function() {
+  console.log("rinnng");
+}
+
+var tnt = new timer(10000, false);
+tnt.onTick = function() {
+  console.info("tick......");
+}
+
+</script>
+
+</html>
